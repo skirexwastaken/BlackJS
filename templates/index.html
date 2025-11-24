@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+   <div class="page">
+      <div class="frame">
+         <h1 id="mainTitle">BlackJS: We want your money :]</h1>
+         <p id="myHand">--- Waiting ---</p>
+         <p id="dealerHand">--- Waiting ---</p>
+         <p id="gameStatus">--- Waiting ---</p>
+         <div>
+            <button onclick="gameInstance.start()">NEW</button>
+            <button onclick="gameInstance.hold()">HOLD</button>
+            <button onclick="gameInstance.hit()">HIT</button>
+            <div>
+               <p id="balance">Balance: 100</p>
+               <div>
+                  <p id="betAmount">Bet Amount: 20</p>
+                  <button onclick="gameInstance.decreaseBetAmount()" style="background: local; border:0px;" >-</button>
+                  <button onclick="gameInstance.increaseBetAmount()" style="background: local; border:0px;" >+</button>
+               </div>
+            </div>   
+         </div>
+      </div>
+   </div>
+   <script src="{{ url_for('static', filename='BlackJS.js') }}"></script>
+</body>
+</html>

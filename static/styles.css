@@ -1,0 +1,35 @@
+.page {
+    display: grid;
+    place-items: center;   
+    height: 100vh;        
+    background: #111;      
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.frame {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border: 4px solid #ffd900;
+    padding: 25px;
+    border-radius: 12px;
+    max-width: 400px;
+    width: 90%;               
+    background: #111;     
+    color: #ffd900;  
+    box-shadow: 0 0 20px rgba(255, 217, 0, 0.3);
+    text-align: center;
+}
+
+button {
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: 2px solid #ffd900;
+    background: #111; 
+    color: #ffd900;
+    border-radius: 8px;
+    cursor: pointer;
+}
