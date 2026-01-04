@@ -286,6 +286,28 @@ class BlackJS{
         while(this.dealerCount < 17){
             this.dealerTakesCard()
             this.calculateDealerCount()
+
+            // If dealer has a total cards value of over 21
+            if (this.dealerCount > 21){
+
+                // Trying to convert Ace from 11 -> 1
+                for (const card of ["A♠️", "A♥️", "A♣️", "A♦️"]){
+                    if (this.dealerCards.includes(card)){
+                        this.dealerCount -= 10
+                        this.updateDealerHand()
+                        break
+                    }
+                }
+
+                // If dealer still has a total cards value of over 21 then the player wins
+                if (this.dealerCount > 21){
+                    this.updateGameStatus("Result: Player has won!")
+                    this.updateDealerHand()
+                    this.calculateBalance(true)
+                    this.started = false
+                    return
+                }
+            }
         }
 
         // If dealer has a BlackJack
@@ -317,28 +339,6 @@ class BlackJS{
             this.calculateBalance(true)
             this.started = false
             return
-        }
-
-        // If dealer has a total cards value of over 21
-        if (this.dealerCount > 21){
-
-            // Trying to convert Ace from 11 -> 1
-            for (const card of ["A♠️", "A♥️", "A♣️", "A♦️"]){
-                if (this.dealerCards.includes(card)){
-                    this.dealerCount -= 10
-                    this.updateDealerHand()
-                    break
-                }
-            }
-
-            // If dealer still has a total cards value of over 21 then the player wins
-            if (this.dealerCount > 21){
-                this.updateGameStatus("Result: Player has won!")
-                this.updateDealerHand()
-                this.calculateBalance(true)
-                this.started = false
-                return
-            }
         }
 
         // If dealer has a higher total cards value
