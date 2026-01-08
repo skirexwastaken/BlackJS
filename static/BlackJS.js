@@ -218,6 +218,17 @@ class BlackJS{
             this.dealerTakesCard()
         }
 
+        // If player has over 21 -> Attempt to find Ace, if Ace is found, its valued is changed from 11 -> 1
+        if (this.playerCount > 21){
+            for (const card of ["A♠️", "A♥️", "A♣️", "A♦️"]){
+                if (this.myCards.includes(card)){
+                    this.playerCount -= 10
+                    this.updatePlayerHand()
+                    break
+                }
+            }
+        }
+
         // Calculates Player's and Dealer's card value
         this.calculatePlayerCount()
         this.calculateDealerCount()
